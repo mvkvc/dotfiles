@@ -29,9 +29,10 @@ in
       claude-code
       gemini-cli
       unstable.qwen-code
+      ollama
       bitwarden
-      thunderbird
       vscodium-fhs
+      fira-code
     ];
 
     programs.bash = {
@@ -53,6 +54,8 @@ in
         push.autoSetupRemote = true;
       };
     };
+
+    services.ollama.enable = true;
 
     home.stateVersion = "25.05";
   };
