@@ -5,12 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      <nixos-hardware/framework/13-inch/11th-gen-intel>
-      ./hardware-configuration.nix
-      ./home.nix
-    ];
+  imports = [
+    <nixos-hardware/framework/13-inch/11th-gen-intel>
+    ./hardware-configuration.nix
+    ./home.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -87,11 +86,14 @@
   users.users.mvkvc = {
     isNormalUser = true;
     description = "Marko Vukovic";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
       kdePackages.yakuake
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -104,8 +106,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -135,7 +137,12 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   services.fwupd.enable = true;
+
+  virtualisation.docker.enable = true;
 }

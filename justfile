@@ -12,5 +12,8 @@ restore:
     mkdir -p ~/.vscode-oss/extensions
     cp -i ./vscode-oss/extensions.json ~/.vscode-oss/extensions/extensions.json
 
-build:
+switch:
     sudo nixos-rebuild switch -I nixos-config=./nix/configuration.nix
+
+test:
+    sudo nixos-rebuild test -I nixos-config=./nix/configuration.nix
