@@ -21,9 +21,11 @@ in
     home.packages = with pkgs; [
       htop
       neofetch
+      just
       git
       direnv
       neovim
+      nixfmt-rfc-style
       claude-code
       gemini-cli
       unstable.qwen-code
@@ -47,6 +49,9 @@ in
       enable = true;
       userName = "Marko Vukovic";
       userEmail = "git@mvk.vc";
+      extraConfig = {
+        push.autoSetupRemote = true;
+      };
     };
 
     home.stateVersion = "25.05";
