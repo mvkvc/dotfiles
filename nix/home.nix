@@ -31,6 +31,9 @@ in
 
       home.packages = with pkgs; [
         htop
+        wget
+        tree
+        ripgrep
         neofetch
         just
         git
@@ -38,7 +41,6 @@ in
         neovim
         nixfmt-rfc-style
         claude-code
-        gemini-cli
         unstable.qwen-code
         ollama
         docker-compose
@@ -46,6 +48,8 @@ in
         vscodium-fhs
         fira-code
         logseq
+        hexchat
+        discord
       ];
 
       programs.bash = {
@@ -56,6 +60,7 @@ in
         shellAliases = {
           vi = "nvim";
           vim = "nvim";
+          code = "codium";
         };
       };
 
