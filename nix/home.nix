@@ -30,26 +30,27 @@ in
       nixpkgs.config.allowUnfree = true;
 
       home.packages = with pkgs; [
-        htop
-        wget
-        tree
-        ripgrep
         neofetch
-        just
+        htop
+        tree
+        curl
+        wget
+        dig
         git
+        just
         direnv
         neovim
-        nixfmt-rfc-style
+        docker-compose
         claude-code
         unstable.qwen-code
         ollama
-        docker-compose
+        nixfmt-rfc-style
+        fira-code
         bitwarden
         vscodium-fhs
-        fira-code
+        sublime-merge
         logseq
         hexchat
-        discord
       ];
 
       programs.bash = {
@@ -70,6 +71,8 @@ in
         userEmail = "git@mvk.vc";
         extraConfig = {
           push.autoSetupRemote = true;
+          init.defaultBranch = "master";
+          advice.defaultBranchName = false;
         };
       };
 
