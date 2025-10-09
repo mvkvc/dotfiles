@@ -36,6 +36,7 @@ in
         curl
         wget
         dig
+        bat
         git
         just
         direnv
@@ -62,6 +63,7 @@ in
           vi = "nvim";
           vim = "nvim";
           code = "codium";
+          cat = "bat";
         };
       };
 
